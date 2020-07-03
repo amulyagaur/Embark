@@ -1,26 +1,26 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Header from './Header';
+import {Grid} from '@material-ui/core';
+import Filter from './Filter'
+import Content from './Content';
 
-function App() {
+class App extends React.Component{
+  render() {
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header/>
+      <Grid container >
+        <Grid item container spacing={3}>
+          <Grid item xs={false} sm = {1}></Grid>
+          <Grid item xs = {12} sm = {3}><Filter/></Grid>
+          <Grid item xs = {12} sm = {7}><Content/></Grid>
+          <Grid item xs={false} sm = {1}></Grid>
+        </Grid>
+      </Grid>
     </div>
   );
+}
 }
 
 export default App;
