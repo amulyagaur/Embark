@@ -4,31 +4,36 @@ import AccessTimeIcon from '@material-ui/icons/AccessTime';
 import PublicIcon from '@material-ui/icons/Public';
 import { makeStyles } from '@material-ui/core/styles';
 
+
 const useStyles = makeStyles((theme) => ({
     uppMargin:{
         margin: theme.spacing(1, 0)
+    },
+    imgCss:{
+        length:'120px',
+        width:'120px'
     }
 }));
 function JobCard(props){
     const classes = useStyles();
     return (
-        <Card>
+        <Card raised>
             <CardContent>
                 <Grid container>
                     <Grid item sm={2}>
-                        <img src="https://jobs.github.com/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBblNFIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--8401c5084da6bb1a0cacdd3ef319e6f919fcc738/Kasisto_Logo_c90x90.png" alt="logo"/>
+                        <img src={props.companyLogo} alt="logo" className={classes.imgCss}/>
                     </Grid>
                     <Grid item sm={10}>
                                 <Typography variant="caption">
-                                    Kasisto
+                                    {props.companyName}
                                 </Typography>
                                 <Typography variant="h5">
-                                    Front-End Software Engineer
+                                    {props.positon}
                                 </Typography>
                                 <div className={classes.uppMargin}>
                                 <Grid container spacing={1}>
                                     <Grid item sm={6}>
-                                        <Button variant="outlined" color="primary">Full Time</Button>
+                                        <Button variant="outlined" color="primary">{props.positionType}</Button>
                                     </Grid>
                                     <Grid item sm={3}>
                                         <Grid container>
@@ -36,7 +41,7 @@ function JobCard(props){
                                                 <PublicIcon/>
                                             </Grid>
                                             <Grid item sm={10}>
-                                                <Typography variant="body1">New York</Typography>
+                                                <Typography variant="body1">{props.location}</Typography>
                                             </Grid>
                                         </Grid>
                                     </Grid>
@@ -46,7 +51,7 @@ function JobCard(props){
                                                 <AccessTimeIcon/>
                                             </Grid>
                                             <Grid item sm={10}>
-                                                <Typography variant="body1">3 days ago</Typography>
+                                                <Typography variant="body1">{props.timestamp}</Typography>
                                             </Grid>
                                         </Grid>
                                     </Grid>
