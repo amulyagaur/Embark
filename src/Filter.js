@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState} from 'react';
 import { Card, CardHeader, Avatar, Checkbox, CardContent, FormControlLabel, FormGroup, Typography, TextField, Grid, Button } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import FilterListIcon from '@material-ui/icons/FilterList';
@@ -16,7 +16,13 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function Filter(props){
+
     const classes = useStyles();
+    const [etype,setEtype] = useState(false);
+    const [desc,setdesc] = useState("");
+    const [loc,setLoc] = useState("");
+    const [latlong,setLatLong] = useState({lat:0.0,long:0.0});
+
     return(
         <div className={classes.upperMargin}>
         <Card raised>
@@ -37,11 +43,11 @@ function Filter(props){
                 </div>
                 <FormGroup>
                     <FormControlLabel
-                    control={<Checkbox></Checkbox>}
+                    control={<Checkbox id="full"></Checkbox>}
                     label="Full Time"
                     />
                     <FormControlLabel
-                    control={<Checkbox></Checkbox>}
+                    control={<Checkbox id="part"></Checkbox>}
                     label="Part Time"
                     />
                 </FormGroup>
