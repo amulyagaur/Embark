@@ -21,7 +21,7 @@ function JobCard(props){
             <CardContent>
                 <Grid container>
                     <Grid item sm={2}>
-                        <img src={props.companyLogo} alt="logo" className={classes.imgCss}/>
+                        <img src={props.companyLogo} alt="https://www.childhood.org.au/app/uploads/2017/07/ACF-logo-placeholder.png" className={classes.imgCss}/>
                     </Grid>
                     <Grid item sm={10}>
                                 <Typography variant="caption">

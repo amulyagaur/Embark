@@ -18,10 +18,36 @@ const useStyles = makeStyles((theme) => ({
 function Filter(props){
 
     const classes = useStyles();
-    const [etype,setEtype] = useState(false);
-    const [desc,setdesc] = useState("");
+    const [ftime,setFtime] = useState(false);
+    const [ptime,setPtime] = useState(false);
+    const [desc,setDesc] = useState("");
     const [loc,setLoc] = useState("");
-    const [latlong,setLatLong] = useState({lat:0.0,long:0.0});
+    const [lat,setLat] = useState(0.0);
+    const [long,setLong] = useState(0.0);
+
+    const handleFChange = (event) => {
+      event.target.checked === true ? setFtime(true):setFtime(false);
+    };
+
+    const handlePChange = (event) => {
+      event.target.checked === true ? setPtime(true):setPtime(false);
+    };
+
+    const handleDChange = (event) => {
+        setDesc(event.target.value);
+      };
+
+    const handleLChange = (event) => {
+        setLoc(event.target.value);
+    };
+
+    const handleLatChange = (event) => {
+        setLat(event.target.value);
+    };
+
+    const handleLongChange = (event) => {
+      setLong(event.target.value);
+    };
 
     return(
         <div className={classes.upperMargin}>
@@ -43,11 +69,11 @@ function Filter(props){
                 </div>
                 <FormGroup>
                     <FormControlLabel
-                    control={<Checkbox id="full"></Checkbox>}
+                    control={<Checkbox id="full" checked={ftime} onChange={handleFChange}></Checkbox>}
                     label="Full Time"
                     />
                     <FormControlLabel
-                    control={<Checkbox id="part"></Checkbox>}
+                    control={<Checkbox id="part" checked={ptime} onChange={handlePChange}></Checkbox>}
                     label="Part Time"
                     />
                 </FormGroup>
@@ -62,7 +88,7 @@ function Filter(props){
             <DescriptionIcon />
           </Grid>
           <Grid item>
-            <TextField label="A search term" />
+            <TextField label="A search term" id="descfield" value={desc} onChange={handleDChange} />
           </Grid>
         </Grid>
         <br/>
@@ -77,7 +103,7 @@ function Filter(props){
             <PublicIcon />
           </Grid>
           <Grid item>
-            <TextField  label="A city name, zip code etc." />
+            <TextField  label="A city name, zip code etc." id="locfield" value={loc} onChange={handleLChange} />
           </Grid>
         </Grid>
         <br/>
@@ -92,7 +118,7 @@ function Filter(props){
             <MyLocationIcon />
           </Grid>
           <Grid item>
-            <TextField  label="Latitude" />
+            <TextField  label="Latitude" id="latfield" value={lat} onChange={handleLatChange}/>
           </Grid>
         </Grid>
         <Grid container spacing={1} alignItems="flex-end">
@@ -100,7 +126,7 @@ function Filter(props){
             <MyLocationIcon />
           </Grid>
           <Grid item>
-            <TextField  label="Longitude" />
+            <TextField  label="Longitude" id="longfield" value={long} onChange={handleLongChange}/>
           </Grid>
         </Grid>
         <br/>
