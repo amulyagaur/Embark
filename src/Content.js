@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from 'react';
-import { Card, CardHeader, Avatar, Checkbox, CardContent, FormControlLabel, FormGroup, Typography, TextField, Grid, Button, Dialog, DialogContent, DialogTitle } from '@material-ui/core';
+import { Card, CardHeader, Avatar, Checkbox, CardContent, FormControlLabel, FormGroup, Typography, TextField, Grid, Button, Dialog, DialogContent, DialogTitle, Accordion, AccordionSummary, AccordionDetails } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import JobCard from './JobCard';
 import FilterListIcon from '@material-ui/icons/FilterList';
@@ -7,6 +7,7 @@ import DescriptionIcon from '@material-ui/icons/Description';
 import PublicIcon from '@material-ui/icons/Public';
 import MyLocationIcon from '@material-ui/icons/MyLocation';
 import LinearProgress from '@material-ui/core/LinearProgress';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 const useStyles = makeStyles((theme) => ({
     uppeMargin:{
@@ -111,11 +112,15 @@ function Content(props){
             </CardHeader>
             <CardContent>
             <hr/>
+            <Accordion>
+                <AccordionSummary expandIcon={<ExpandMoreIcon />}>
                 <div className={classes.filterType}>
                 <Typography variant="h6">
                     Employment Type
                 </Typography>
                 </div>
+                </AccordionSummary>
+                <AccordionDetails>
                 <FormGroup>
                     <FormControlLabel
                     control={<Checkbox id="full" checked={ftime} onChange={handleFChange}></Checkbox>}
@@ -126,12 +131,18 @@ function Content(props){
                     label="Part Time"
                     />
                 </FormGroup>
-                <hr/>
+                </AccordionDetails>
+                </Accordion>
+               
+                <Accordion>
+                <AccordionSummary expandIcon={<ExpandMoreIcon />}>
                 <div className={classes.filterType}>
                 <Typography variant="h6">
                     Description
                 </Typography>
                 </div>
+                </AccordionSummary>
+                <AccordionDetails>
                 <Grid container spacing={1} alignItems="flex-end">
           <Grid item>
             <DescriptionIcon />
@@ -141,12 +152,18 @@ function Content(props){
           </Grid>
         </Grid>
         <br/>
-                <hr/>
+        </AccordionDetails>
+        </Accordion>
+               
+                <Accordion>
+                <AccordionSummary expandIcon={<ExpandMoreIcon />}>
                 <div className={classes.filterType}>
                 <Typography variant="h6">
                     Location
                 </Typography>
                 </div>
+                </AccordionSummary>
+                <AccordionDetails>
                 <Grid container spacing={1} alignItems="flex-end">
           <Grid item>
             <PublicIcon />
@@ -156,12 +173,18 @@ function Content(props){
           </Grid>
         </Grid>
         <br/>
-        <hr/>
+        </AccordionDetails>
+        </Accordion>
+      
+        <Accordion>
+        <AccordionSummary expandIcon={<ExpandMoreIcon />}>
         <div className={classes.filterType}>
                 <Typography variant="h6">
                     Latitude Longitude
                 </Typography>
                 </div>
+                </AccordionSummary>
+                <AccordionDetails>
                 <Grid container spacing={1} alignItems="flex-end">
           <Grid item>
             <MyLocationIcon />
@@ -179,6 +202,8 @@ function Content(props){
           </Grid>
         </Grid>
         <br/>
+        </AccordionDetails>
+        </Accordion>
         <hr/>
         <br/>
         <Button href="#" color="primary" variant="contained" className={classes.link} fullWidth onClick={handleFilters}>
