@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from 'react';
-import { Card, CardHeader, Avatar, Checkbox, CardContent, FormControlLabel, FormGroup, Typography, TextField, Grid, Button } from '@material-ui/core';
+import { Card, CardHeader, Avatar, Checkbox, CardContent, FormControlLabel, FormGroup, Typography, TextField, Grid, Button, Dialog, DialogContent, DialogTitle } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import JobCard from './JobCard';
 import FilterListIcon from '@material-ui/icons/FilterList';
@@ -55,6 +55,7 @@ function Content(props){
 
     const handleFilters = () => {
         setShow(true);
+        setJobs([]);
         var baseUrl = "https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json?";
         if(desc.length>0)
             baseUrl+=`description=${desc}&`
@@ -194,7 +195,13 @@ function Content(props){
             <Grid item xs={12} sm={9} lg={9}>
         <div className={classes.uppeMargin}>
         { show===true && (
-            <LinearProgress />)}
+            <Dialog open={show}>
+                <DialogTitle id="alert-dialog-title">{"Hang Tight! We are loading jobs for you."}</DialogTitle>
+                <DialogContent>
+            <LinearProgress />
+            <br/>
+            </DialogContent>
+            </Dialog>)}
         <Grid container direction="row" spacing={2}>
             {
                 jobs.map((ob,index) =>

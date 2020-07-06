@@ -10,8 +10,8 @@ const useStyles = makeStyles((theme) => ({
         margin: theme.spacing(1, 0)
     },
     imgCss:{
-        length:'120px',
-        width:'120px'
+        length:'100%',
+        width:'100%'
     }
 }));
 function JobCard(props){
@@ -19,11 +19,11 @@ function JobCard(props){
     return (
         <Card raised>
             <CardContent>
-                <Grid container>
-                    <Grid item sm={2}>
+                <Grid container spacing={2}>
+                    <Grid item xs={12} sm={2} lg={2}>
                         <img src={props.companyLogo} alt="logo" className={classes.imgCss}/>
                     </Grid>
-                    <Grid item sm={10}>
+                    <Grid item xs={12} sm={10} lg={10}>
                                 <Typography variant="caption">
                                     {props.companyName}
                                 </Typography>
@@ -32,11 +32,11 @@ function JobCard(props){
                                 </Typography>
                                 <div className={classes.uppMargin}>
                                 <Grid container spacing={1}>
-                                    <Grid item sm={6}>
+                                    <Grid item xs={3} sm={6} lg={6}>
                                         <Button variant="outlined" color="primary">{props.positionType}</Button>
                                     </Grid>
-                                    <Grid item sm={3}>
-                                        <Grid container>
+                                    <Grid item xs={5} sm={3} lg={3}>
+                                        <Grid container spacing={1}>
                                             <Grid item sm={2}>
                                                 <PublicIcon/>
                                             </Grid>
@@ -45,13 +45,13 @@ function JobCard(props){
                                             </Grid>
                                         </Grid>
                                     </Grid>
-                                    <Grid item sm={3}>
-                                    <Grid container>
+                                    <Grid item xs={4} sm={3} lg={3}>
+                                    <Grid container spacing={1}>
                                             <Grid item sm={2}>
                                                 <AccessTimeIcon/>
                                             </Grid>
                                             <Grid item sm={10}>
-                                                <Typography variant="body1">{props.timestamp}</Typography>
+                                                <Typography variant="body1">{props.timestamp.substr(0,10)}</Typography>
                                             </Grid>
                                         </Grid>
                                     </Grid>
