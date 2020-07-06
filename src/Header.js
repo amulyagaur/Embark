@@ -13,7 +13,7 @@ function Header(props) {
   const classes = useStyles();
         return(
             <AppBar 
-                color="default" position="relative">
+                color="default" position="sticky">
                 <Grid container>
                   <Grid item xs={2} sm = {3} lg={4}></Grid>
                   <Grid item xs={8} sm = {6} lg={4}>
