@@ -10,9 +10,9 @@ function App() {
       <Header/>
       <Grid container >
         <Grid item container spacing={3}>
-          <Grid item xs={false} sm = {1}></Grid>
-          <Grid item xs = {12} sm = {10}><Content/></Grid>
-          <Grid item xs={false} sm = {1}></Grid>
+          <Grid item xs={false} sm = {false} lg={1} ></Grid>
+          <Grid item xs = {12} sm = {12} lg={10} ><Content/></Grid>
+          <Grid item xs={false} sm = {false} lg={1} ></Grid>
         </Grid>
       </Grid>
     </div>

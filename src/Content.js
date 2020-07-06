@@ -97,7 +97,7 @@ function Content(props){
 
     return(
         <Grid container>
-            <Grid item sm={3}>
+            <Grid item xs={12} sm={3} lg={3}>
             <div className={classes.uppeMargin}>
         <Card raised>
             <CardHeader 
@@ -191,7 +191,7 @@ function Content(props){
         </Card>
         </div>
             </Grid>
-            <Grid item sm={9}>
+            <Grid item xs={12} sm={9} lg={9}>
         <div className={classes.uppeMargin}>
         { show===true && (
             <LinearProgress />)}
