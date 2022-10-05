@@ -10,8 +10,8 @@ const useStyles = makeStyles((theme) => ({
         margin: theme.spacing(1, 0)
     },
     imgCss:{
-        length:'100%',
-        width:'100%'
+        length:'80%',
+        width:'80%'
     }
 }));
 function JobCard(props){
